@@ -1,4 +1,4 @@
-# k_2_a
+# Event_management app
 
 A new Flutter project.
 
