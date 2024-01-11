@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "234515120879",
+    "project_id": "eventplan-d6d7a",
+    "storage_bucket": "eventplan-d6d7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234515120879:android:be963494d7a79d2ed5d11a",
+        "android_client_info": {
+          "package_name": "com.example.k_2_a"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAux8NCQplHGSm5wjXzTylbcyuYFH_-5Ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
