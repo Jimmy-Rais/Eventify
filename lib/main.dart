@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -74,6 +73,32 @@ class _QRScanScreenState extends State<QRScanScreen> {
     super.initState();
     _loadTICKET();
     // _onQRViewCreated(_controller);
+  }
+
+  Widget buildTicketListTile(String ticketName, int ticketValue, Color ticketColor) {
+    return ListTile(
+      title: Row(
+        children: [
+          Icon(
+            Icons.lens,
+            color: Colors.black,
+            size: 12,
+          ),
+          SizedBox(width: 5),
+          Text('$ticketName: '),
+          Icon(
+            Icons.check_circle,
+            color: ticketColor,
+            size: 18,
+          ),
+        ],
+      ),
+      onTap: () {
+        // Navigate to the settings screen or perform an action
+        // Closes the drawer
+        _loadTICKET();
+      },
+    );
   }
 
   _loadTICKET() async {
@@ -227,149 +252,17 @@ class _QRScanScreenState extends State<QRScanScreen> {
               height: 50,
             ),
             ListTile(
-                leading: Icon(Icons.refresh),
-                title: Text('Refresh'),
-                onTap: () {
-                  _loadTICKET();
-                }),
-            ListTile(
-              title: Row(
-                children: [
-                  Icon(
-                    Icons.lens,
-                    color: Colors.black,
-                    size: 12,
-                  ),
-                  SizedBox(width: 5),
-                  Text('TICKET 00: '),
-                  Icon(
-                    Icons.check_circle,
-                    color: ticketColor00,
-                    size: 18,
-                  ),
-                ],
-              ),
+              leading: Icon(Icons.refresh),
+              title: Text('Refresh'),
               onTap: () {
-                // Navigate to the settings screen or perform an action
-                // Closes the drawer
                 _loadTICKET();
-              },
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Icon(
-                    Icons.lens,
-                    color: Colors.black,
-                    size: 12,
-                  ),
-                  SizedBox(width: 5),
-                  Text('TICKET 01: '),
-                  Icon(
-                    Icons.check_circle,
-                    color: ticketColor01,
-                    size: 18,
-                  ),
-                ],
-              ),
-              onTap: () {
-                // Navigate to the settings screen or perform an action
-                // Closes the drawer
-                _loadTICKET();
-              },
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Icon(
-                    Icons.lens,
-                    color: Colors.black,
-                    size: 12,
-                  ),
-                  SizedBox(width: 5),
-                  Text('TICKET 02: '),
-                  Icon(
-                    Icons.check_circle,
-                    color: ticketColor02,
-                    size: 18,
-                  ),
-                ],
-              ),
-              onTap: () {
-                // Navigate to the settings screen or perform an action
-                // Closes the drawer
-                _loadTICKET();
-              },
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Icon(
-                    Icons.lens,
-                    color: Colors.black,
-                    size: 12,
-                  ),
-                  SizedBox(width: 5),
-                  Text('TICKET 03: '),
-                  Icon(
-                    Icons.check_circle,
-                    color: ticketColor03,
-                    size: 18,
-                  ),
-                ],
-              ),
-              onTap: () {
-                // Navigate to the settings screen or perform an action
-                // Closes the drawer
-                _loadTICKET();
-              },
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Icon(
-                    Icons.lens,
-                    color: Colors.black,
-                    size: 12,
-                  ),
-                  SizedBox(width: 5),
-                  Text('TICKET 04: '),
-                  Icon(
-                    Icons.check_circle,
-                    color: ticketColor04,
-                    size: 18,
-                  ),
-                ],
-              ),
-              onTap: () {
-                // Navigate to the settings screen or perform an action
-                // Closes the drawer
-                _loadTICKET();
-              },
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Icon(
-                    Icons.lens,
-                    color: Colors.black,
-                    size: 12,
-                  ),
-                  SizedBox(width: 5),
-                  Text('TICKET 05: '),
-                  Icon(
-                    Icons.check_circle,
-                    color: ticketColor05,
-                    size: 18,
-                  ),
-                ],
-              ),
-              onTap: () {
-                // Navigate to the settings screen or perform an action
-                // Closes the drawer
-                _loadTICKET();
-              },
-            ),
+              }),
+            buildTicketListTile('TICKET 00', TICKET00, ticketColor00),
+            buildTicketListTile('TICKET 01', TICKET01, ticketColor01),
+            buildTicketListTile('TICKET 02', TICKET02, ticketColor02),
+            buildTicketListTile('TICKET 03', TICKET03, ticketColor03),
+            buildTicketListTile('TICKET 04', TICKET04, ticketColor04),
+            buildTicketListTile('TICKET 05', TICKET05, ticketColor05),
             // Add more ListTiles for additional items in the drawer
           ],
         ),
@@ -432,3 +325,4 @@ class _QRScanScreenState extends State<QRScanScreen> {
     );
   }
 }
+
