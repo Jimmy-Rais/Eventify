@@ -1,6 +1,6 @@
 # Event_management app
 
-A new Flutter project.
+An event management app.
 
 ## Getting Started
 
